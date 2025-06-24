@@ -46,7 +46,13 @@ function retornaChamados()
 
 $chamados = retornaChamados();
 ?>
-
+<script>
+    function confirmarExclusao(id) {
+        if (confirm('Tem certeza que deseja excluir este chamado?')) {
+            window.location.href = 'consulta_chamados.php?excluir=' + id;
+        }
+    }
+</script>
 <h2>Chamados</h2>
 
 <?php
@@ -94,14 +100,6 @@ if (isset($_GET['exclusao'])) {
         <?php endforeach; ?>
     </tbody>
 </table>
-
-<script>
-    function confirmarExclusao(id) {
-        if (confirm('Tem certeza que deseja excluir este chamado?')) {
-            window.location.href = 'consulta_chamados.php?excluir=' + id;
-        }
-    }
-</script>
 
 <?php
 require_once("rodape.php");
